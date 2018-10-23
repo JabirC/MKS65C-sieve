@@ -5,7 +5,6 @@ int sieve(int targetPrime){
   double targetlog = log(targetPrime);
   if (targetPrime > 5000) size = (int)(1.15 * targetPrime * targetlog);
   else size = (int)(1.3 * targetPrime * targetlog) + 10 ;
-
   int * arr =  calloc(size, sizeof(int)) ;
   int index = 2;
   while(index < size){
@@ -15,7 +14,6 @@ int sieve(int targetPrime){
           arr[innerind] = 1;
         }
     }
-        printf("index: %d , val: %d \n", index, arr[index]);
         index++;
   }
   int counter =0;
