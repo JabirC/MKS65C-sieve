@@ -6,11 +6,11 @@ int sieve(int targetPrime){
   double targetlog = log(targetPrime);
   if (targetPrime > 5000) size = (int)(0.575 * targetPrime * targetlog);
   else size = (int)(.65 * targetPrime * targetlog) + 10 ;
-  char * arr =  calloc(size, sizeof(char)) ;
+  int * arr =  calloc(size, sizeof(int)) ;
   int index = 0;
   int num = 3;
   while(num < ceil(sqrt(size))){
-    if(!arr[index]){
+    if(arr[index]==0){
         int innerind;
         for(innerind = index + num; innerind < size; innerind += num){
           arr[innerind] = 1;
@@ -22,7 +22,7 @@ int sieve(int targetPrime){
   int counter =1;
   num = 3;
   for(index = 0; index < size; index++){
-    if(!arr[index])counter++;
+    if(arr[index] == 0)counter++;
     if(counter == targetPrime){
       return num;
     }
